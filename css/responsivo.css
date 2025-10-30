@@ -1,0 +1,14 @@
+@media screen and (max-width: 768px) {
+    main{
+        flex-direction: column;
+        gap: 30px;
+    }
+    .esquerda, .direita{
+        width: 100%;
+        margin: 0;
+        height: auto;
+    }
+    .item-card{
+        width: 100%;
+    }
+}
