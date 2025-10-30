@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Isma</title>
+    <link rel="stylesheet" href="css/estilo.css" />
+    <link rel="shortcut icon" href="images/esnupi.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <script src="javascript.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <img src="images/kultLogo.jpg" alt="" />
+    </header>
+    <main>
+        <section class="esquerda">
+            <div class="informacoes">
+                <div class="portrait">
+                    <img src="images/portrait.jpg" alt="portrait">
+                    <h1 class="name">Isma <br><span>CELESTIAL <br>FM:2</span></h1>
+                </div>
+                <div class="bars">
+                    <div class="status-container" id="vida">
+                        <div class="label">VIDA</div>
+                            <div class="bar-container">
+                                <div class="bar red"></div>
+                                    <div class="controls">
+                                        <div>
+                                            <button class="btn" onclick="changeValue('vida', -5)">
+                                                «
+                                            </button>
+                                            <button class="btn" onclick="changeValue('vida', -1)">
+                                                <
+                                            </button>
+                                        </div>
+                                        <div>
+                                        <button class="btn" onclick="changeValue('vida', 1)">
+                                            >
+                                        </button>
+                                        <button class="btn" onclick="changeValue('vida', 5)">
+                                            »
+                                        </button>
+                                        </div>
+                                    </div>
+                                        <div class="value">38 / 38</div>
+                                    </div>
+                                </div>
+                        <div class="status-container" id="maldicao">
+                            <div class="label">MALDIÇÃO</div>
+                            <div class="bar-container">
+                            <div class="bar purple"></div>
+                            <div class="controls">
+                                <div>
+                                <button class="btn" onclick="changeValue('maldicao', -5)">
+                                    «
+                                </button>
+                                <button class="btn" onclick="changeValue('maldicao', -1)">
+                                    <
+                                </button>
+                                </div>
+                                <div>
+                                <button class="btn" onclick="changeValue('maldicao', 1)">
+                                    >
+                                </button>
+                                <button class="btn" onclick="changeValue('maldicao', 5)">
+                                    »
+                                </button>
+                                </div>
+                            </div>
+                            <div class="value">45 / 100</div>
+                            </div>
+                </div>
+            </div>
+            <div class="atributos">
+                <div class="box_top">
+                    <h1 class="box_title">Atributos</h1>
+                </div>
+                <div class="box_bottom">
+                    <div class="atrib_l">
+                        <button onclick="rolarDado(2, 'Fortitude')">
+                            <i class="bi bi-dice-5-fill"></i> <p>Fortitude: <span>2</span></p>
+                        </button>
+                        <button onclick="rolarDado(1, 'Reflexos')">
+                            <i class="bi bi-dice-5-fill"></i> <p>Reflexos: <span>1</span></p>
+                        </button>
+                        <button onclick="rolarDado(2, 'Vontade')">
+                            <i class="bi bi-dice-5-fill"></i> <p>Vontade: <span>2</span></p>
+                        </button>
+                        <button onclick="rolarDado(0, 'Razão')">
+                            <i class="bi bi-dice-5-fill"></i> <p>Razão: <span>0</span></p>
+                        </button>
+                        <button onclick="rolarDado(2, 'Intuição')">
+                            <i class="bi bi-dice-5-fill"></i> <p>Intuição: <span>2</span></p>
+                        </button>
+                    </div>
+                    <div class="atrib_r">
+                        <button onclick="rolarDado(1, 'Percepção')">
+                            <i class="bi bi-dice-5-fill"></i> <p>Percepção: <span>1</span></p>
+                        </button>
+                        <button onclick="rolarDado(1, 'Firmeza')">
+                            <i class="bi bi-dice-5-fill"></i> <p>Firmeza: <span>1</span></p>
+                        </button>
+                        <button onclick="rolarDado(-2, 'Violência')">
+                            <i class="bi bi-dice-5-fill"></i> <p>Violência: <span>-2</span></p>
+                        </button>
+                        <button onclick="rolarDado(-1, 'Carisma')">
+                            <i class="bi bi-dice-5-fill"></i> <p>Carisma: <span>-1</span></p>
+                        </button>
+                        <button onclick="rolarDado(5, 'Alma')">
+                            <i class="bi bi-dice-5-fill"></i> <p>Alma: <span>5</span></p>
+                        </button>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+        <section class="direita">
+            <div class="combate">
+                <h1>Combate</h1>
+                <div class="item-card">
+                    <div class="item-header" onclick="toggleDetails(this)">
+                    <div class="arrow">▾</div>
+                    <div class="title">
+                        <strong>guaaja</strong>
+                        <div class="sub">
+                        <span class="dano">Dano: <b>2d6</b></span>
+                        <span class="critico">Crítico: <b>14/x3</b></span>
+                        </div>
+                    </div>
+                    <div class="roll" onclick="event.stopPropagation(); rolarGuaaja();">
+                        <i class="bi bi-arrow-clockwise"></i>
+                    </div>
+                    </div>
+
+                    <div class="item-details">
+                    <hr />
+                    <p>Uma faixa preta em seus pulsos que podem ser esticadas e manipuladas para causar dano ou executar manobras.
+                    <br> Quando for atacada, pode usar sua Guaaja em volta se si como uma reação ao sofrer dano, recebendo +3 de defesa
+                    <br>Além disso pode executar manobras a longa distância, como agarrar, derrubar e desarmar
+                    </p>
+                    </div>
+                </div>
+
+                <div class="item-card">
+                    <div class="item-header" onclick="toggleDetails(this)">
+                    <div class="arrow">▾</div>
+                    <div class="title">
+                        <strong>soco</strong>
+                        <div class="sub">
+                        <span class="dano">Dano: <b>1d6</b></span>
+                        <span class="critico">Crítico: <b>18/x2</b></span>
+                        </div>
+                    </div>
+                    <div class="roll" onclick="event.stopPropagation(); rolarSoco();">
+                        <i class="bi bi-arrow-clockwise"></i>
+                    </div>
+                    </div>
+
+                    <div class="item-details">
+                    <hr />
+                    <p>Um ataque com o punho fechado</p>
+                </div>
+                
+            </div>
+            <div class="habilidades">
+                <h1 class="hab-title">Habilidades</h1>
+                <div class="item-card">
+                    <div class="item-header" onclick="toggleDetails(this)">
+                    <div class="arrow">▾</div>
+                    <div class="title">
+                        <strong>Reflexo Contrário</strong>
+                    </div>
+                    <div class="roll-group" onclick="event.stopPropagation();">
+                        <div class="roll" onclick="rolarHabilidade(1)"><i class="bi bi-zoom-out"></i></div>
+                        <div class="roll" onclick="rolarHabilidade(2)"><i class="bi bi-zoom-in"></i></div>
+                    </div>
+                    </div>
+                    <div class="item-details">
+                    <hr />
+                    <p>Sempre que uma criatura próxima tentar realizar uma transmutação de matéria, o material alvo pode ser sabotado, sendo transformado em seu oposto lógico, simbólico ou natural, ao invés do resultado esperado.
+                    <br>
+                    Entre 18 metros e 9 metros de distância:
+                    <br>Sempre que alguém tentar transmutar, role 1d20.
+                    <br>Se o resultado for igual ou menor que 10, a habilidade é ativada e a transmutação é sabotada.
+                    </p>
+                    </div>
+                </div> <!-- fecha o primeiro .item-card -->
+    
+                <div class="item-card">
+                    <div class="item-header" onclick="toggleDetails(this)">
+                    <div class="arrow">▾</div>
+                    <div class="title">
+                        <strong>Transmutação Caótica</strong>
+                    </div>
+                    <div class="roll" onclick="event.stopPropagation(); rolarHabilidade(1);">
+                        <i class="bi bi-magic"></i>
+                    </div>
+                    </div>
+    
+                    <div class="item-details">
+                    <hr />
+                    <p>Sua personagem não transmutará matéria comum como os demais. Ela atua diretamente sobre dois materiais abstratos e opostos — Luz e Sombra — moldando ambos simultaneamente, como se as duas estivessem interligadas em sua essência.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div id="historico" class="historico"></div>
+    </main>
+  </body>
+</html>
